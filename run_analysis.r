@@ -44,9 +44,10 @@ output <- cbind(subjects, labels, means, std.devs)
 colnames(output) <- c("subject", "label", "mean","std.dev")
 
 output.4 <- merge(output,activity.labels, by.x = "label", by.y = "code")
+write.csv(output.4, file = "clean_data.csv")
 
 output.5 <- output.4 %>%
             group_by(subject, activity.label) %>%
             summarise(average.meas = mean(mean))
-  
-  
+write.csv(output.5, file = "summary.csv")
+
