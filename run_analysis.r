@@ -50,4 +50,5 @@ output.5 <- output.4 %>%
             group_by(subject, activity.label) %>%
             summarise(average.meas = mean(mean))
 write.csv(output.5, file = "summary.csv")
+write.table(output.5, file = "output.txt", row.names = FALSE)
 
